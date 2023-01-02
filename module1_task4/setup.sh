@@ -1,6 +1,2 @@
-apt update
-apt install hugo
-apt install make
-make build
-exit 255
-echo "recipe for target 'build' failed" >&2
+#!/bin/bash
+apt-get update && apt-get install -y git make curl build-essential
