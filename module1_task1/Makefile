@@ -1,5 +1,5 @@
 build:
-		hugo
+		hugo > /dev/null 2>&1
 
 clean:
 		rm -rf ./dist/
