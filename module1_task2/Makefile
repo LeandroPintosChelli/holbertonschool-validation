@@ -3,8 +3,7 @@
 build:
 		hugo
 
-## Cleanup the content of the directory dist/
-clean:
+clean:        ## Cleanup the content of the directory dist/
 		rm -rf ./dist/
 
 ## Create a new blog post whose filename and title
