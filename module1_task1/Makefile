@@ -1,8 +1,10 @@
+.PHONY:
+
 build:
 	hugo > /dev/null 2>&1
 
 clean:
-	rm -fr dist
+	rm -rf dist
 
 post:
 	hugo new posts/${POST_NAME}.md
