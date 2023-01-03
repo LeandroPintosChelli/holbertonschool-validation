@@ -1,13 +1,8 @@
 ## Prerequisites
-
-- Valid Go-Hugo website is provided
-- There are no Git Submodules
-- The theme ananke is installed
-- No directory dist/ committed
-- Makefile present
+- GoHugo v0.80+
+- goLang
 
 ## Lifecycle
-
 - build
 - clean
 - post
