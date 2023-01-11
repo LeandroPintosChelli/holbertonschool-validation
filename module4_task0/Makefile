@@ -11,18 +11,17 @@ post:  ## Create a new blog post whose filename and title come from the environm
 
 
 help:  ## Show this help.
-	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
+	@sed -ne '/@sed/!s/## //p' Makefile
 
-unit-tests:     ## Unit testing
-	pwd
-
-integration-tests:     ## Integration testing
-	ls -l
-
-lint:     ## Check bash script syntax
-	shellcheck setup.sh
-validate:     ## Validating
-	ls
-
-package:     ## Produce a zip file
-	zip awesome-website.zip dist/
+package: ## Create a package
+	@make build
+	@zip awesome-website.zip dist
+lint: ## lint with markdown
+	@markdownlint README.md
+	@markdownlint DEPLOY.md
+unit-tests: ## not implemented yet
+	@ls
+validate: ## not implemented yet
+	@ls
+integration-tests: ## not implemented yet
+	@ls
