@@ -1,26 +1,28 @@
 ---
-
-
 name: module3_task1
-
-on:
+"on":
   push:
-    paths:
-      - 'module3_task1/**'
+    branches:
+      - main
   schedule:
     - cron: '0 0 * * *'
-jobs:
-  build:
-    runs-on: ubuntu-18.04
-    steps:
-      - name: clone github repository
-        uses: actions/checkout@v3
 
-      - name: run script bash
+permissions: read-all
+
+jobs:
+  builds:
+    name: job1
+    runs-on: ubuntu-18.04
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: install hugo
         run: |
-          cd module3_task1/
-          ./setup.sh
-      - name: Validate Makefile
+          cd module3_task1 && ./setup.sh
+      - name: Validate Makefile help
         run: |
-          cd module3_task1/
+          cd module3_task1
+          make help
           make build
+          make clean
+          make POST_NAME=who-are-we POST_TITLE="Who are we" post
