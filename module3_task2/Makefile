@@ -9,7 +9,7 @@ post:	## Creates a post with given POST_NAME and POST_TITLE.
 	sed -i '/title/c\title: "${POST_TITLE}"' content/posts/${POST_NAME}.md
 
 help:	## Show help .
-	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
+	@sed -ne '/@sed/!s/## //p' Makefile
 
 package: ## zip website
 	@hugo
